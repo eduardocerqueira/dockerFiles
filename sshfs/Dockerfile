@@ -21,7 +21,7 @@ RUN mkdir -p {$SHARE,$USERNAME} && \
     chown -R $USERNAME $USERNAME
 
 USER $USERNAME
-RUN test -z "$SSH_KEY" || echo "$SSH_KEY" >> /$USERNAME/key.pem && chmod 0600 /$USERNAME/key.pem && "ignoring SSH_KEY"
+RUN echo "$SSH_KEY" >> /$USERNAME/key.pem && chmod 0600 /$USERNAME/key.pem
 WORKDIR $SHARE
 
 # keep container up and running

@@ -1,0 +1,25 @@
+apiVersion: image.openshift.io/v1
+kind: ImageStream
+metadata:
+  creationTimestamp: null
+  generation: 1
+  labels:
+    app: sshfs
+  name: sshfs
+  selfLink: /apis/image.openshift.io/v1/namespaces/insights-qe-dev/imagestreams/sshfs
+spec:
+  lookupPolicy:
+    local: false
+  tags:
+  - annotations:
+      openshift.io/imported-from: quay.io/ecerquei/sshfs:latest
+    from:
+      kind: DockerImage
+      name: quay.io/ecerquei/sshfs:latest
+    generation: 1
+    importPolicy: {}
+    name: latest
+    referencePolicy:
+      type: Source
+status:
+  dockerImageRepository: docker-registry.default.svc:5000/sshfs
