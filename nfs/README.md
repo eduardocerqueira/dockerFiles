@@ -22,8 +22,8 @@ mount -t nfs 10.8.196.202:/mnt/pvc_bkp /mnt/fs
 # push to repo
 docker login quay.io
 docker ps
-docker commit 1187edf17710 quay.io/ecerquei/sshfs
-docker push quay.io/ecerquei/sshfs
+docker commit 1187edf17710 quay.io/ecerquei/nfs
+docker push quay.io/ecerquei/nfs
 ```
 
 ### running in openshift
@@ -34,7 +34,6 @@ oc apply -f templates/dc.yaml
 oc apply -f templates/is.yaml
 oc get pods
 oc rsh pod-id
-sshfs -o IdentityFile=/user/key.pem user@file.srv.x.com:/home/user /mnt/fs
 ```
 
 ### TODO:
